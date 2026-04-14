@@ -7,6 +7,7 @@ import PrivateRoute from "./PrivateRoute";
 import Login from "../pages/Login";
 import ProductDetails from "../pages/ProductDetails";
 import AllBids from "../pages/AllBids";
+import MyProducts from "../pages/MyProducts";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,14 @@ export const router = createBrowserRouter([
       {
         path: "login",
         Component: Login,
+      },
+      {
+        path: "myProducts",
+        element: (
+          <PrivateRoute>
+            <MyProducts></MyProducts>
+          </PrivateRoute>
+        ),
       },
       {
         path: "allBids",
