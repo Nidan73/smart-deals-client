@@ -3,6 +3,7 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import AllProducts from "../pages/AllProducts";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +16,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "allProducts",
-        Component: AllProducts,
+        element: (
+          <PrivateRoute>
+            <AllProducts></AllProducts>
+          </PrivateRoute>
+        ),
       },
       {
         path: "register",
