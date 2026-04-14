@@ -12,15 +12,6 @@ const Navbar = () => {
       <li>
         <NavLink to="/allProducts">All Products</NavLink>
       </li>
-      <li>
-        <NavLink to="/register">Register</NavLink>
-      </li>
-
-      {user && (
-        <li>
-          <NavLink to="/allProducts">All Products</NavLink>
-        </li>
-      )}
     </>
   );
   const handleSignOut = () => {
@@ -66,9 +57,14 @@ const Navbar = () => {
               Logout
             </a>
           ) : (
-            <Link to="/register" className="btn">
-              Sign In
-            </Link>
+            <div className="flex justify-center items-center gap-4">
+              <Link to="/register" className="btn">
+                Register
+              </Link>
+              <Link to="/login" className="btn">
+                Sign In
+              </Link>
+            </div>
           )}
         </div>
       </div>
