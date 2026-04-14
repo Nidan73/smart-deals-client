@@ -12,6 +12,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/allProducts">All Products</NavLink>
       </li>
+      <li>
+        <NavLink to="/allBids">My Bids</NavLink>
+      </li>
     </>
   );
   const handleSignOut = () => {

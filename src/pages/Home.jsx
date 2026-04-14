@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import Hero from "../components/Hero";
 import LatestProductSection from "../sections/LatestProductSection";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const latestProductPromise = fetch(

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router";
 
 const ProductCard = ({ product }) => {
   const { _id, title, price_min, price_max, image } = product || {};
@@ -28,9 +29,12 @@ const ProductCard = ({ product }) => {
         ৳ {price_min?.toLocaleString()} - {price_max?.toLocaleString()}
       </p>
 
-      <button className="w-full rounded-md border border-[#8b5cf6] py-3 text-[16px] font-semibold text-[#8b5cf6] transition hover:bg-[#8b5cf6] hover:text-white">
+      <Link
+        to={`/productDetails/${_id}`}
+        className="w-full rounded-md py-3 text-[16px] font-semibold text-[#8b5cf6] transition hover:bg-[#8b5cf6] hover:text-white"
+      >
         View Details
-      </button>
+      </Link>
     </div>
   );
 };
