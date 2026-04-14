@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { EmailAuthCredential } from "firebase/auth/web-extension";
 
 const Register = () => {
   const { signInWithGoogle } = use(AuthContext);
@@ -7,6 +8,21 @@ const Register = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result);
+        const newUser = {
+          name: result.user.displayName,
+          email: result.user.email,
+          image: result.user.photoURL,
+        };
+
+        fetch("http://localhost:5000/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => console.log("this is my data", data));
       })
       .then((error) => console.log(error));
   };
